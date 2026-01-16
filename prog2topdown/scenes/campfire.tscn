@@ -1,3 +1,71 @@
-[gd_scene format=3 uid="uid://byxkmq0qoymdi"]
+[gd_scene load_steps=9 format=3 uid="uid://byxkmq0qoymdi"]
+
+[ext_resource type="Texture2D" uid="uid://ckgrhehi0aboj" path="res://assets/campfire-Sheet.png" id="1_m47ar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54scn"]
+atlas = ExtResource("1_m47ar")
+region = Rect2(0, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfrnb"]
+atlas = ExtResource("1_m47ar")
+region = Rect2(36, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pk5p"]
+atlas = ExtResource("1_m47ar")
+region = Rect2(72, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6xh0"]
+atlas = ExtResource("1_m47ar")
+region = Rect2(108, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v5ef"]
+atlas = ExtResource("1_m47ar")
+region = Rect2(144, 0, 36, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63vhv"]
+atlas = ExtResource("1_m47ar")
+region = Rect2(180, 0, 36, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2pjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54scn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfrnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pk5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6xh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v5ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63vhv")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 5.0
+}]
 
 [node name="Campfire" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -23.5)
+scale = Vector2(1, 0.979167)
+sprite_frames = SubResource("SpriteFrames_w2pjx")
+animation = &"dance"
+autoplay = "dance"
+frame_progress = 0.135841
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
