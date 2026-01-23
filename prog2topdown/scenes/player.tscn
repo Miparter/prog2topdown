@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://rv5pg6dcoxhq"]
+[gd_scene load_steps=21 format=3 uid="uid://rv5pg6dcoxhq"]
 
 [ext_resource type="Texture2D" uid="uid://bmuc7leo5lth8" path="res://assets/AnimationSheet_Character.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://ce4733kuvlooo" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cp0yv30tw4jol" path="res://assets/Giant Fly Sprite Sheet.png" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://cd4r8u2cky3bl" path="res://scenes/gun_circle.gd" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -121,17 +122,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(14, 19)
+size = Vector2(14, 3.5)
 
 [node name="player" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_60mlk")
-animation = &"fly_running"
-frame_progress = 0.517335
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -13)
+position = Vector2(-1, -2.25)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="GunCircle" type="Node2D" parent="."]
+script = ExtResource("4_dqkch")

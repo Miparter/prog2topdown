@@ -56,7 +56,8 @@ animations = [{
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(8, -16, 11, -16, 11, -16, 15, -16, 15, -15, 16, -15, 16, -10, 14, -10, 14, -9, 12, -6, 10, -4, 7, -3, 6, -2, 5, -1, 1, -1, 0, -2, -5, -2, -6, -3, -11, -5, -12, -6, -12, -8, -17, -9, -17, -11, -14, -16, -9, -16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -23.5)
@@ -64,8 +65,7 @@ scale = Vector2(1, 0.979167)
 sprite_frames = SubResource("SpriteFrames_w2pjx")
 animation = &"dance"
 autoplay = "dance"
-frame_progress = 0.135841
+frame = 1
+frame_progress = 0.047318
 
 [node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 300.0
+@export var speed = 250
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
@@ -25,3 +25,10 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.play("idle")
 	move_and_slide()
+	
+	#Om spelaren är över elden, hamna bakom den
+	if self.global_position.y < 0:
+		z_index = 0
+	#annars var över i grafik-ordning
+	else:
+		z_index = 1
