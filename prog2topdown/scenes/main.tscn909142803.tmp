@@ -362,6 +362,7 @@ sources/0 = SubResource("TileSetAtlasSource_tbgi4")
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(158, -41)
 scale = Vector2(2, 2)
+speed = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.2, 1.2)
