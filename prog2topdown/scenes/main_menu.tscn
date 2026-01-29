@@ -194,7 +194,7 @@ offset_top = -4.0
 offset_right = 625.0
 offset_bottom = 87.0
 theme_override_font_sizes/font_size = 57
-text = "No settings for you"
+text = "No options for you"
 
 [node name="options_close" type="Button" parent="options"]
 layout_mode = 0

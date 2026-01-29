@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://rv5pg6dcoxhq"]
+[gd_scene load_steps=23 format=3 uid="uid://rv5pg6dcoxhq"]
 
 [ext_resource type="Texture2D" uid="uid://bmuc7leo5lth8" path="res://assets/AnimationSheet_Character.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://ce4733kuvlooo" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cp0yv30tw4jol" path="res://assets/Giant Fly Sprite Sheet.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://sn05x47n0pbm" path="res://assets/Pistols/Pistols.png" id="5_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://b5x2cftk4mfju" path="res://scripts/GRASS - Run Short 5.wav" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -123,6 +125,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(14, 3.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("5_tuyoq")
+region = Rect2(169, 12, 16, 11)
+
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_qhqgy")
@@ -136,3 +142,11 @@ frame_progress = 0.943197
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -2.25)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="GunCircle" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="GunCircle"]
+texture = SubResource("AtlasTexture_y4r1p")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tuyoq")

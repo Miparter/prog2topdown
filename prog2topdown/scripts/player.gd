@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var speed = 250
 @onready var sprite:= $AnimatedSprite2D
+@onready var walk: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _physics_process(delta: float) -> void:
 	var input_var = Vector2.ZERO
@@ -24,10 +25,11 @@ func _physics_process(delta: float) -> void:
 	if input_var.length() > 0:
 		velocity = input_var.normalized() * speed
 		sprite.play("running")
+		walk.play()
 	else:
 		velocity = Vector2.ZERO
 		sprite.play("idle")
-		
+		walk.stop()
 	move_and_slide()
 	
 	#Om spelaren är över elden, hamna bakom den
