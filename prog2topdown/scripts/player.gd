@@ -3,30 +3,31 @@ extends CharacterBody2D
 
 @export var speed = 250
 @onready var sprite:= $AnimatedSprite2D
-@onready var footsteps :=$AudioStreamPlayer2D
 
 func _physics_process(delta: float) -> void:
 	var input_var = Vector2.ZERO
 	
-	
+	#fångar upp varje rörelse
 	if Input.is_action_pressed("key_a"):
-		input_var.x = -1 * speed 
+		input_var.x = -1 
 		$AnimatedSprite2D.flip_h = true
 	if Input.is_action_pressed("key_d"):
-		input_var.x = 1 * speed 
+		input_var.x = 1 
 		$AnimatedSprite2D.flip_h = false
 	if Input.is_action_pressed("key_w"):
-		input_var.y = -1 * speed 
+		input_var.y = -1 
 	if Input.is_action_pressed("key_s"):
-		input_var.y = 1 * speed 
+		input_var.y = 1 
 		
-		
+		#
 	if input_var.length() > 0:
 		velocity = input_var.normalized() * speed
-		sprite.play("running")
+		if sprite.animation !="running":
+			sprite.play("running")
 	else:
 		velocity = Vector2.ZERO
-		sprite.play("idle")
+		if sprite.animation !="idle":
+			sprite.play("idle")
 		
 	move_and_slide()
 	

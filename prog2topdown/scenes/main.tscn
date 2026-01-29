@@ -377,31 +377,31 @@ tile_set = SubResource("TileSet_tefeu")
 position = Vector2(-2, 47)
 scale = Vector2(3.5, 3.5)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="walls" type="Node2D" parent="."]
 
-[node name="bottom wall" type="StaticBody2D" parent="Node2D"]
+[node name="bottom wall" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/bottom wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/bottom wall"]
 position = Vector2(0, 265)
 shape = SubResource("WorldBoundaryShape2D_sugp2")
 
-[node name="top wall" type="StaticBody2D" parent="Node2D"]
+[node name="top wall" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/top wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/top wall"]
 position = Vector2(0, -220)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_sugp2")
 
-[node name="left wall" type="StaticBody2D" parent="Node2D"]
+[node name="left wall" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/left wall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/left wall"]
 position = Vector2(-475, 0)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_sugp2")
 
-[node name="bottom wall2" type="StaticBody2D" parent="Node2D"]
+[node name="bottom wall2" type="StaticBody2D" parent="walls"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/bottom wall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/bottom wall2"]
 position = Vector2(475, 0)
 rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_sugp2")
