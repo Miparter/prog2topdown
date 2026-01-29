@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://comnan5djdrya"]
+[gd_scene load_steps=24 format=3 uid="uid://comnan5djdrya"]
 
 [ext_resource type="Texture2D" uid="uid://d35ndaiofa73" path="res://assets/background.png" id="1_bqqt6"]
 [ext_resource type="FontFile" uid="uid://bguhfru5hm7pw" path="res://assets/Daydream DEMO.otf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://dmw0e4cxftdko" path="res://scenes/main_menu.gd" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://c444ofnpjnyjt" path="res://assets/04B_30__.TTF" id="3_wu84c"]
+[ext_resource type="AudioStream" uid="uid://bebam3p0oid6n" path="res://assets/menu song.mp3" id="5_8ln24"]
+[ext_resource type="Texture2D" uid="uid://csb88ip8lcpvg" path="res://assets/50cent.png" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ln24"]
 texture = ExtResource("1_bqqt6")
@@ -38,6 +40,46 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 2.425)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0, 0.54902, 0.843137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dd4i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgwnu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcqid"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ajci"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b55j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pajh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7ex8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="main menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -47,7 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wu84c")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +98,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_8ln24")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -71,7 +113,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 19
 
-[node name="start" type="Button" parent="VBoxContainer"]
+[node name="start" type="Button" parent="buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -85,7 +127,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 text = "Start"
 
-[node name="options" type="Button" parent="VBoxContainer"]
+[node name="options" type="Button" parent="buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -99,7 +141,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 text = "Options"
 
-[node name="quit" type="Button" parent="VBoxContainer"]
+[node name="quit" type="Button" parent="buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -113,7 +155,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
 text = "Quit"
 
-[node name="Label" type="Label" parent="."]
+[node name="title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -129,6 +171,67 @@ theme_override_fonts/font = ExtResource("3_wu84c")
 theme_override_font_sizes/font_size = 106
 text = "Fireflies"
 
-[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[node name="menusong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ln24")
+parameters/looping = false
+
+[node name="options" type="Panel" parent="."]
+offset_left = 1299.0
+offset_top = 484.0
+offset_right = 1907.0
+offset_bottom = 1006.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oa1go")
+
+[node name="Sprite2D" type="Sprite2D" parent="options"]
+position = Vector2(313, 291)
+scale = Vector2(0.171944, 0.165381)
+texture = ExtResource("6_rtw2f")
+
+[node name="Label" type="Label" parent="options"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -4.0
+offset_right = 625.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 57
+text = "No settings for you"
+
+[node name="options_close" type="Button" parent="options"]
+layout_mode = 0
+offset_left = 549.0
+offset_top = -2.0
+offset_right = 589.0
+offset_bottom = 84.0
+theme_override_colors/font_disabled_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.82881, 2.71939e-06, 5.77569e-07, 1)
+theme_override_colors/icon_disabled_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.835718, 3.22476e-06, 7.70092e-07, 1)
+theme_override_colors/icon_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.585847, 1.8049e-06, 4.33177e-07, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 62
+theme_override_styles/focus = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jk1qb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_5dd4i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_lgwnu")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_flqon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rcqid")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_1ajci")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7b55j")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_5pajh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j7ex8")
+text = "X"
+
+[connection signal="pressed" from="buttons/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="buttons/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="options/options_close" to="." method="_on_options_close_pressed"]

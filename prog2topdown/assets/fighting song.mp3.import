@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://82gei8thnhtu"
+path="res://.godot/imported/fighting song.mp3-38bf1ab9f4bee628c7524453fa020290.mp3str"
+
+[deps]
+
+source_file="res://assets/fighting song.mp3"
+dest_files=["res://.godot/imported/fighting song.mp3-38bf1ab9f4bee628c7524453fa020290.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

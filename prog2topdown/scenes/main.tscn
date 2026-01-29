@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cxg03asawqnm6"]
+[gd_scene load_steps=9 format=4 uid="uid://cxg03asawqnm6"]
 
 [ext_resource type="PackedScene" uid="uid://rv5pg6dcoxhq" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cmdb0cdd3jmd5" path="res://scenes/main.gd" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dascejqude4se" path="res://assets/GRASS+.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://byxkmq0qoymdi" path="res://scenes/campfire.tscn" id="3_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://82gei8thnhtu" path="res://assets/fighting song.mp3" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("2_sugp2")
@@ -358,6 +360,7 @@ sources/0 = SubResource("TileSetAtlasSource_tbgi4")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sugp2"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_tbgi4")
 
 [node name="player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(158, -41)
@@ -405,3 +408,8 @@ shape = SubResource("WorldBoundaryShape2D_sugp2")
 position = Vector2(475, 0)
 rotation = 4.71239
 shape = SubResource("WorldBoundaryShape2D_sugp2")
+
+[node name="fightsong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jyhfs")
+volume_db = -10.0
+parameters/looping = false
