@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://comnan5djdrya"]
+[gd_scene load_steps=25 format=3 uid="uid://comnan5djdrya"]
 
 [ext_resource type="Texture2D" uid="uid://d35ndaiofa73" path="res://assets/background.png" id="1_bqqt6"]
 [ext_resource type="FontFile" uid="uid://bguhfru5hm7pw" path="res://assets/Daydream DEMO.otf" id="1_l6cm7"]
@@ -39,6 +39,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 2.425)
+
+[sub_resource type="Theme" id="Theme_rtw2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
 bg_color = Color(0, 0.54902, 0.843137, 1)
@@ -130,6 +132,7 @@ text = "Start"
 [node name="options" type="Button" parent="buttons"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_rtw2f")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
@@ -176,6 +179,7 @@ stream = ExtResource("5_8ln24")
 parameters/looping = false
 
 [node name="options" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 1299.0
 offset_top = 484.0
 offset_right = 1907.0

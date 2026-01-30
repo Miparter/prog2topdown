@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://cxg03asawqnm6"]
+[gd_scene load_steps=17 format=4 uid="uid://cxg03asawqnm6"]
 
 [ext_resource type="PackedScene" uid="uid://rv5pg6dcoxhq" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cmdb0cdd3jmd5" path="res://scenes/main.gd" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dascejqude4se" path="res://assets/GRASS+.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://byxkmq0qoymdi" path="res://scenes/campfire.tscn" id="3_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://82gei8thnhtu" path="res://assets/fighting song.mp3" id="4_jyhfs"]
+[ext_resource type="FontFile" uid="uid://c444ofnpjnyjt" path="res://assets/04B_30__.TTF" id="6_tipki"]
+[ext_resource type="FontFile" uid="uid://bguhfru5hm7pw" path="res://assets/Daydream DEMO.otf" id="7_85g3d"]
+[ext_resource type="Texture2D" uid="uid://cl3pvkkrtw8x2" path="res://assets/martin.jpg" id="8_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("2_sugp2")
@@ -360,6 +363,39 @@ sources/0 = SubResource("TileSetAtlasSource_tbgi4")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sugp2"]
 distance = -174.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ya4ey"]
+bg_color = Color(0, 0.54902, 0.843137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eb6dy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trceg"]
+bg_color = Color(0.207978, 0.48932, 0.32516, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8y0u"]
+bg_color = Color(0.186576, 0.446001, 0.294714, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkv2x"]
+bg_color = Color(0.34346, 0.744933, 0.508623, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 3
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_tbgi4")
 
@@ -412,5 +448,63 @@ shape = SubResource("WorldBoundaryShape2D_sugp2")
 
 [node name="fightsong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jyhfs")
-volume_db = -10.0
+volume_db = -15.0
 parameters/looping = false
+
+[node name="optionsingame" type="Panel" parent="."]
+process_mode = 3
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -213.5
+offset_right = 270.0
+offset_bottom = 213.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ya4ey")
+
+[node name="pausetext" type="Label" parent="optionsingame"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.5
+offset_top = 17.5
+offset_right = 232.5
+offset_bottom = 59.5
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("6_tipki")
+theme_override_font_sizes/font_size = 41
+text = "Game is paused"
+
+[node name="backtomenu" type="Button" parent="optionsingame"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 335.5
+offset_right = 488.0
+offset_bottom = 394.5
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_85g3d")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eb6dy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8y0u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jkv2x")
+text = "Back To menu"
+
+[node name="martin" type="Sprite2D" parent="optionsingame"]
+position = Vector2(272, 197.5)
+scale = Vector2(0.378241, 0.125651)
+texture = ExtResource("8_choun")
+
+[connection signal="pressed" from="optionsingame/backtomenu" to="." method="_on_backtomenu_pressed"]

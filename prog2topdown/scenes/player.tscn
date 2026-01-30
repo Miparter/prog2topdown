@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bmuc7leo5lth8" path="res://assets/AnimationSheet_Character.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://ce4733kuvlooo" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cp0yv30tw4jol" path="res://assets/Giant Fly Sprite Sheet.png" id="2_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://dg4pywhv3qrga" path="res://assets/grass-run-short-5_IbMg59CJ.wav" id="5_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://sn05x47n0pbm" path="res://assets/Pistols/Pistols.png" id="5_tuyoq"]
-[ext_resource type="AudioStream" uid="uid://b5x2cftk4mfju" path="res://scripts/GRASS - Run Short 5.wav" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -149,4 +149,4 @@ shape = SubResource("RectangleShape2D_g2els")
 texture = SubResource("AtlasTexture_y4r1p")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_tuyoq")
+stream = ExtResource("5_qlg0r")
