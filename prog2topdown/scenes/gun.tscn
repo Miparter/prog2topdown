@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bh7v3j2y8otru"]
+
+[ext_resource type="Script" uid="uid://blqyb3ntd8xys" path="res://scripts/gun.gd" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://sn05x47n0pbm" path="res://assets/Pistols/Pistols.png" id="1_x77fm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og67c"]
+atlas = ExtResource("1_x77fm")
+region = Rect2(169, 12, 16, 11)
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_og67c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_og67c")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(8, -3)

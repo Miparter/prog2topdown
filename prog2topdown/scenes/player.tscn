@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://ce4733kuvlooo" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cp0yv30tw4jol" path="res://assets/Giant Fly Sprite Sheet.png" id="2_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dg4pywhv3qrga" path="res://assets/grass-run-short-5_IbMg59CJ.wav" id="5_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://sn05x47n0pbm" path="res://assets/Pistols/Pistols.png" id="5_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bh7v3j2y8otru" path="res://scenes/gun.tscn" id="5_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://dfb4byflhjilr" path="res://scenes/Bullet.tscn" id="6_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -125,10 +126,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(14, 3.5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
-atlas = ExtResource("5_tuyoq")
-region = Rect2(169, 12, 16, 11)
-
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_qhqgy")
@@ -143,10 +140,9 @@ frame_progress = 0.943197
 position = Vector2(-1, -2.25)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="GunCircle" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="GunCircle"]
-texture = SubResource("AtlasTexture_y4r1p")
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qlg0r")
+
+[node name="Gun" parent="." instance=ExtResource("5_tuyoq")]
+
+[node name="Area2D" parent="Gun" instance=ExtResource("6_fjrip")]
