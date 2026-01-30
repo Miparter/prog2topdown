@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var sprite:= $AnimatedSprite2D
 @onready var walk: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+
 func _physics_process(delta: float) -> void:
 	var input_var = Vector2.ZERO
 	
@@ -21,12 +22,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("key_s"):
 		input_var.y = 1 
 		
-		
+		#När i rörelse
 	if input_var.length() > 0:
 		velocity = input_var.normalized() * speed
 		sprite.play("running")
 		if not walk.playing:
 			walk.play()
+	
 	else:
 		velocity = Vector2.ZERO
 		sprite.play("idle")
@@ -39,4 +41,7 @@ func _physics_process(delta: float) -> void:
 	#annars var över i grafik-ordning
 	else:
 		z_index = 1
-#yay
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action("shoot"):
+		get_node("Gun").shoot()

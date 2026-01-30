@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=4 uid="uid://cxg03asawqnm6"]
+[gd_scene load_steps=18 format=4 uid="uid://cxg03asawqnm6"]
 
 [ext_resource type="PackedScene" uid="uid://rv5pg6dcoxhq" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cmdb0cdd3jmd5" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://dascejqude4se" path="res://assets/GRASS+.png" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://byxkmq0qoymdi" path="res://scenes/campfire.tscn" id="3_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://82gei8thnhtu" path="res://assets/fighting song.mp3" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://ddavdroaqkybr" path="res://scenes/walls.gd" id="5_85g3d"]
 [ext_resource type="FontFile" uid="uid://c444ofnpjnyjt" path="res://assets/04B_30__.TTF" id="6_tipki"]
 [ext_resource type="FontFile" uid="uid://bguhfru5hm7pw" path="res://assets/Daydream DEMO.otf" id="7_85g3d"]
 [ext_resource type="Texture2D" uid="uid://cl3pvkkrtw8x2" path="res://assets/martin.jpg" id="8_choun"]
@@ -418,6 +419,7 @@ position = Vector2(-2, 47)
 scale = Vector2(3.5, 3.5)
 
 [node name="walls" type="Node2D" parent="."]
+script = ExtResource("5_85g3d")
 
 [node name="bottom wall" type="StaticBody2D" parent="walls"]
 
@@ -486,10 +488,10 @@ text = "Game is paused"
 
 [node name="backtomenu" type="Button" parent="optionsingame"]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 335.5
-offset_right = 488.0
-offset_bottom = 394.5
+offset_left = 58.0
+offset_top = 334.5
+offset_right = 483.0
+offset_bottom = 393.5
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 1, 1)

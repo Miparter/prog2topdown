@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://rv5pg6dcoxhq"]
+[gd_scene load_steps=22 format=3 uid="uid://rv5pg6dcoxhq"]
 
 [ext_resource type="Texture2D" uid="uid://bmuc7leo5lth8" path="res://assets/AnimationSheet_Character.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://ce4733kuvlooo" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cp0yv30tw4jol" path="res://assets/Giant Fly Sprite Sheet.png" id="2_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dg4pywhv3qrga" path="res://assets/grass-run-short-5_IbMg59CJ.wav" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bh7v3j2y8otru" path="res://scenes/gun.tscn" id="5_tuyoq"]
-[ext_resource type="PackedScene" uid="uid://dfb4byflhjilr" path="res://scenes/Bullet.tscn" id="6_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -126,26 +125,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(14, 3.5)
 
-[sub_resource type="GDScript" id="GDScript_hf8mt"]
-script/source = "extends Area2D
-
-@export var speed: float = 600
-@export var lifetime: float = 2.0
-
-var velocity: Vector2 = Vector2.ZERO
-
-func _ready():
-	velocity = Vector2.RIGHT.rotated(global_rotation) * speed
-	await get_tree().create_timer(lifetime).timeout
-	queue_free()
-
-func _process(delta):
-	position += velocity * delta
-
-func _on_body_entered(body):
-	queue_free()
-"
-
 [node name="player" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_qhqgy")
@@ -164,7 +143,3 @@ shape = SubResource("RectangleShape2D_g2els")
 stream = ExtResource("5_qlg0r")
 
 [node name="Gun" parent="." instance=ExtResource("5_tuyoq")]
-
-[node name="bullet" parent="." instance=ExtResource("6_fjrip")]
-script = SubResource("GDScript_hf8mt")
-lifetime = 2.0
