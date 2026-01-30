@@ -39,3 +39,4 @@ func _physics_process(delta: float) -> void:
 	#annars var över i grafik-ordning
 	else:
 		z_index = 1
+#yay
