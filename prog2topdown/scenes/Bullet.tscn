@@ -1,7 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfb4byflhjilr"]
 
 [ext_resource type="Texture2D" uid="uid://br1221rc1hwcw" path="res://assets/All_Fire_Bullet_Pixel_16x16.png" id="1_hf8mt"]
-[ext_resource type="Script" uid="uid://u04snuvn8i2q" path="res://scripts/bullet.gd" id="1_p1sfj"]
+
+[sub_resource type="GDScript" id="GDScript_hf8mt"]
+script/source = "extends Area2D
+
+@export var speed: float = 600
+@export var lifetime: float = 2.0
+
+var velocity: Vector2 = Vector2.ZERO
+
+func _ready():
+	velocity = Vector2.RIGHT.rotated(global_rotation) * speed
+	await get_tree().create_timer(lifetime).timeout
+	queue_free()
+
+func _process(delta):
+	position += velocity * delta
+
+func _on_body_entered(body):
+	queue_free()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1sfj"]
 size = Vector2(9, 8.75)
@@ -11,7 +30,7 @@ atlas = ExtResource("1_hf8mt")
 region = Rect2(389, 7, 5, 3)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_p1sfj")
+script = SubResource("GDScript_hf8mt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p1sfj")

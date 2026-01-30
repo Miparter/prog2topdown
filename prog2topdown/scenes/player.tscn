@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://rv5pg6dcoxhq"]
+[gd_scene load_steps=22 format=3 uid="uid://rv5pg6dcoxhq"]
 
 [ext_resource type="Texture2D" uid="uid://bmuc7leo5lth8" path="res://assets/AnimationSheet_Character.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://ce4733kuvlooo" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://cp0yv30tw4jol" path="res://assets/Giant Fly Sprite Sheet.png" id="2_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dg4pywhv3qrga" path="res://assets/grass-run-short-5_IbMg59CJ.wav" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bh7v3j2y8otru" path="res://scenes/gun.tscn" id="5_tuyoq"]
-[ext_resource type="PackedScene" uid="uid://dfb4byflhjilr" path="res://scenes/Bullet.tscn" id="6_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("2_qhqgy")
@@ -144,5 +143,3 @@ shape = SubResource("RectangleShape2D_g2els")
 stream = ExtResource("5_qlg0r")
 
 [node name="Gun" parent="." instance=ExtResource("5_tuyoq")]
-
-[node name="Area2D" parent="Gun" instance=ExtResource("6_fjrip")]

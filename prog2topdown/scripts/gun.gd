@@ -1,26 +1,31 @@
-extends Node2D
 
-@export var radius = 50
-@export var offset = Vector2(0, -25)
+extends Node2D
+# GunPivot.gd
+
+
+@export var radius: float = 50.0    #radien från spelaren
+@export var offset: Vector2 = Vector2(0, -25) # offset till mitten av spelaren
 
 func _process(delta):
-	# vet inte om detta är rätt men det funkar typ
-	var p = get_parent().global_position + offset
+	if not get_parent():
+		return
 	
-	# musen lol
-	var m = get_global_mouse_position()
+	# 1. Calculate the pivot center (player + offset)
+	var center = get_parent().global_position + offset
 	
-	# riktning (tror detta är rätt??)
-	var d = (m - p).normalized()
+	# 2. Get mouse position
+	var mouse_pos = get_global_mouse_position()
 	
-	# flytta vapnet runt spelaren
-	global_position = p + d * radius
+	# 3. Compute direction from player center to mouse
+	var direction = (mouse_pos - center).normalized()
 	
-	# rotera grejen
-	$Sprite2D.global_rotation = d.angle()
+	# 4. Set GunPivot position on circle
+	global_position = center + direction * radius
 	
-	# flippa om den går åt fel håll
-	if d.x < 0:
-		$Sprite2D.scale.y = -1
+	# 5. Rotate the gun to point at mouse
+	self.global_rotation = direction.angle()
+	
+	if direction.x < 0:
+		self.scale.y = -1
 	else:
-		$Sprite2D.scale.y = 1
+		self.scale.y = 1
