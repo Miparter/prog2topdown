@@ -1,7 +1,7 @@
 
+
 extends Node2D
 # GunPivot.gd
-
 
 @export var radius: float = 50.0    #radien från spelaren
 @export var offset: Vector2 = Vector2(0, -25) # offset till mitten av spelaren
@@ -23,9 +23,9 @@ func _process(delta):
 	global_position = center + direction * radius
 	
 	# 5. Rotate the gun to point at mouse
-	self.global_rotation = direction.angle()
+	global_rotation = direction.angle()
 	
 	if direction.x < 0:
-		self.scale.y = -1
+		scale.y = -1
 	else:
-		self.scale.y = 1
+		scale.y = 1
